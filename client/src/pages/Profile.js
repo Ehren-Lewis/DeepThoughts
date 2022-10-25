@@ -19,7 +19,7 @@ const Profile = props => {
       console.log(data)
       setThoughts([...data]);
       setIsLoaded(true);
-      } catch (err) {
+      } catch (err) { 
         console.log(err)
       }
     };

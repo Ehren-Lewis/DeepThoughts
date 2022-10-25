@@ -40,13 +40,14 @@ router.get("/users/:username", (req, res) => {
             "#un": "username",
             "#ca": "createdAt",
             "#th": "thought",
+            "#img": "image"
         },
         // Defining an alias for the search value itself: the inputted username
         // value aliases have the : prefix
         ExpressionAttributeValues: {
             ":user": req.params.username
         },
-        ProjectionExpression: "#th, #ca", // Defines what will be returned
+        ProjectionExpression: "#un, #th, #ca, #img", // Defines what will be returned
         ScanIndexForward: false,
     }
 
@@ -65,7 +66,8 @@ router.post("/users", (req, res) => {
         Item: {
             username: req.body.username,
             createdAt: Date.now(),
-            thought: req.body.thought
+            thought: req.body.thought,
+            image: req.body.image
         }
     }
 

@@ -2,10 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Renders the list of thoughts
+
+
 const ThoughtList = ({ thoughts, title }) => {
   if (!thoughts.length) {
     return <h3>No Thoughts Yet</h3>;
   }
+
   return (
     <div>
       <h3>{title}</h3>
@@ -26,6 +29,13 @@ const ThoughtList = ({ thoughts, title }) => {
                 {thought.thought}
               </p>
             }
+            
+            {thought.image ? 
+              <p className='px-2'>
+              <img className='mt-3 ml-4 thought-image'
+                src={thought.image}
+                alt="S3 Bucket response" />
+            </p> : "" }
             
           </div>
         ))}

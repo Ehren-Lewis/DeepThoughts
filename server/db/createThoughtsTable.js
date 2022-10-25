@@ -7,7 +7,7 @@ AWS.config.update({
 
 // cosnt DynamoDB
 
-const dynamo = new AWS.DynamoDB.DocumentClient({apiVersion: "2012-08-10"});
+const dynamo = new AWS.DynamoDB({apiVersion: "2012-08-10"});
 
 const params = {
     TableName: "Thoughts",
@@ -34,3 +34,5 @@ dynamo.createTable(params, (err, data) => {
         console.log(JSON.stringify(data, null, 2))
     }
 })
+
+module.exports = params;
