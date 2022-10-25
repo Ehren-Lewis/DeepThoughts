@@ -1,6 +1,10 @@
 const AWS = require('aws-sdk')
 const { v4: uuidv4 } = require("uuid");
-AWS.config.update({region: "us-east-2"});
+
+AWS.config.update({
+    accessKeyId: process.env.AWS_ACCESS_KEY,
+    secretAccessKey: process.env.AWS_SECRET_KEY,
+    region: "us-east-2"});
 
 const s3 = new AWS.S3({apiVersion: "2006-03-01"});
 

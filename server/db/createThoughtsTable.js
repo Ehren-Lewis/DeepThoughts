@@ -2,9 +2,9 @@
 const AWS = require("aws-sdk");
 const { json } = require("stream/consumers");
 AWS.config.update({
-    region:"us-east-2"
-});
-
+    accessKeyId: process.env.AWS_ACCESS_KEY,
+    secretAccessKey: process.env.AWS_SECRET_KEY,
+    region: "us-east-2"});
 // cosnt DynamoDB
 
 const dynamo = new AWS.DynamoDB({apiVersion: "2012-08-10"});

@@ -5,8 +5,9 @@ const AWS = require("aws-sdk");
 const router = express.Router();
 
 AWS.config.update({
-    region:"us-east-2",
-})
+    accessKeyId: process.env.AWS_ACCESS_KEY,
+    secretAccessKey: process.env.AWS_SECRET_KEY,
+    region: "us-east-2"});
 
 const dynamo = new AWS.DynamoDB.DocumentClient();
 const table =  'Thoughts';

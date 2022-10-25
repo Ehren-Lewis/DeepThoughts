@@ -3,8 +3,9 @@ const fs = require("fs");
 const { json } = require("stream/consumers");
 // const jsonsss = require("../seed/users.json")
 AWS.config.update({
-    region:"us-east-2"
-});
+    accessKeyId: process.env.AWS_ACCESS_KEY,
+    secretAccessKey: process.env.AWS_SECRET_KEY,
+    region: "us-east-2"});
 
 const dynamo = new AWS.DynamoDB.DocumentClient({
     apiVersion: "2012-08-10",
