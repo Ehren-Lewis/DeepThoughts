@@ -18,11 +18,13 @@ router.get("/users", (req, res) => {
 
     dynamo.scan( params, (err, data) => {
         if (err) {
-            res.sendStatus(500).json(err)
+            res.sendStatus(500).json(err);
+            return;
         }
 
         else {
-            res.json(data.Items)
+            res.json(data.Items);
+            return;
         }
     })
     
@@ -53,9 +55,11 @@ router.get("/users/:username", (req, res) => {
 
     dynamo.query(params, (err, data) => {
         if (err) {
-            res.json(err)
+            res.json(err);
+            return;
         } else {
-            res.json(data.Items)
+            res.json(data.Items);
+            return;
         }
     });
 });
@@ -73,9 +77,11 @@ router.post("/users", (req, res) => {
 
     dynamo.put(params, (err, data) => {
         if (err) {
-            res.json(err)
+            res.json(err);
+            return;
         } else {
             res.json(JSON.stringify(data, null, 2));
+            return;
         }
     })
 
